@@ -1,0 +1,19 @@
+<hibernate-configuration>
+    <session-factory>
+
+        // Connection Properties
+        <property name="connection.driver_class">org.sqlite.JDBC</property>
+        <property name="connection.url">jdbc:sqlite:D:\\Facultate\\Materii\\Anul 2 - Semestrul 2\\Ingineria sistemelor soft\\Laborator\\ISS-Project\\ISSdatabase.db</property>
+        <property name="connection.user">databaseUsername</property>
+        <property name="connection.password">databasePassword</property>
+
+        // Hibernate Properties
+        <property name="show_sql">true</property>
+        <property name="dialet">databaseDialetClass</property>
+        <property name="hbm2ddl.auto">like create/update</property>
+
+        // Mapping files entries
+        <mapping resource="film.hbm.xml" />
+
+    </session-factory>
+</hibernate-configuration>

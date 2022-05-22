@@ -1,0 +1,16 @@
+<hibernate-mapping package = "domain">
+    <class name="Film" table="EMP">
+        <id name="id" type="long" column="id">
+            <generator class="identity" />
+        </id>
+        <property name="nume" type="string">
+            <column name="nume" />
+        </property>
+        <property name="autor" type="string">
+            <column name="autor"/>
+        </property>
+        <property name="durata" type="string">
+            <column name="durata"/>
+        </property>
+    </class>
+</hibernate-mapping>
