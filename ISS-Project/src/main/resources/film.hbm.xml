@@ -1,5 +1,5 @@
 <hibernate-mapping package = "domain">
-    <class name="Film" table="EMP">
+    <class name="Film" table="Filme">
         <id name="id" type="long" column="id">
             <generator class="identity" />
         </id>
@@ -8,9 +8,6 @@
         </property>
         <property name="autor" type="string">
             <column name="autor"/>
-        </property>
-        <property name="durata" type="string">
-            <column name="durata"/>
         </property>
     </class>
 </hibernate-mapping>

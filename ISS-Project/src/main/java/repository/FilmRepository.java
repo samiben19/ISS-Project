@@ -26,11 +26,10 @@ public class FilmRepository {
     public void save(Film film){
         Connection con = dbUtils.getConnection();
 
-        try(PreparedStatement prepStmt = con.prepareStatement("insert into Filme (nume, autor, ore, minute) values (?, ?, ?, ?)")){
+        try(PreparedStatement prepStmt = con.prepareStatement("insert into Filme (nume, autor, durata) values (?, ?, ?)")){
             prepStmt.setString(1, film.getNume());
             prepStmt.setString(2, film.getAutor());
-            prepStmt.setInt(3, film.getOre());
-            prepStmt.setInt(4, film.getMinute());
+            prepStmt.setString(3, film.getDurata());
 //            con.createStatement().execute("PRAGMA foreign_keys = ON");
 //            PreparedStatement pr = con.prepareStatement("PRAGMA foreign_keys;");
 //            ResultSet r = pr.executeQuery();
@@ -50,12 +49,11 @@ public class FilmRepository {
     public void update(Film newFilm){
         Connection con = dbUtils.getConnection();
 
-        try(PreparedStatement prepStmt = con.prepareStatement("update Filme set nume = ?, autor = ?, ore = ?, minute = ? where id = ?")){
+        try(PreparedStatement prepStmt = con.prepareStatement("update Filme set nume = ?, autor = ?, durata = ? where id = ?")){
             prepStmt.setString(1, newFilm.getNume());
             prepStmt.setString(2, newFilm.getAutor());
-            prepStmt.setInt(3, newFilm.getOre());
-            prepStmt.setInt(4, newFilm.getMinute());
-            prepStmt.setLong(5, newFilm.getId());
+            prepStmt.setString(3, newFilm.getDurata());
+            prepStmt.setLong(4, newFilm.getId());
 //            con.createStatement().execute("PRAGMA foreign_keys = ON");
 //            PreparedStatement pr = con.prepareStatement("PRAGMA foreign_keys;");
 //            ResultSet r = pr.executeQuery();
@@ -99,7 +97,7 @@ public class FilmRepository {
 //        Session session = sessionFactory.openSession();
 //
 //        try{
-//            Query<Film> query = session.createQuery("from Film", Film.class);
+//            Query<Film> query = session.createQuery("from Filme", Film.class);
 //            filme = query.list();
 //        }
 //        finally {
@@ -113,10 +111,9 @@ public class FilmRepository {
                     long id = result.getLong("id");
                     String nume = result.getString("nume");
                     String autor = result.getString("autor");
-                    int ore = result.getInt("ore");
-                    int minute = result.getInt("minute");
+                    String durata = result.getString("durata");
 
-                    Film film = new Film(id, nume, autor, ore, minute);
+                    Film film = new Film(id, nume, autor, durata);
                     filme.add(film);
                 }
             }
@@ -125,5 +122,27 @@ public class FilmRepository {
             System.out.println("Error DB, " + ex);
         }
         return filme;
+    }
+
+    public Film getById(Long idFind){
+        Connection con = dbUtils.getConnection();
+
+        try(PreparedStatement prepStmt = con.prepareStatement("select * from Filme where id = ?;")){
+            prepStmt.setLong(1, idFind);
+            try(ResultSet result = prepStmt.executeQuery()){
+                if (result.next()){
+                    long id = result.getLong("id");
+                    String nume = result.getString("nume");
+                    String autor = result.getString("autor");
+                    String durata = result.getString("durata");
+
+                    return new Film(id, nume, autor, durata);
+                }
+            }
+        }
+        catch(SQLException ex){
+            System.out.println("Error DB, " + ex);
+        }
+        return null;
     }
 }

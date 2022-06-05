@@ -8,30 +8,47 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="541.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.issproject.AdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="478.0" prefWidth="984.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.issproject.AdminController">
    <children>
-      <Label layoutX="153.0" layoutY="22.0" text="Admin window">
+      <Label layoutX="389.0" layoutY="14.0" text="Admin window">
          <font>
             <Font name="Times New Roman Bold" size="36.0" />
          </font>
       </Label>
-      <TableView fx:id="table1" layoutX="20.0" layoutY="83.0" onMouseClicked="#table1_clicked" prefHeight="265.0" prefWidth="319.0">
+      <TableView fx:id="table1" layoutX="174.0" layoutY="114.0" onMouseClicked="#table1_clicked" prefHeight="304.0" prefWidth="319.0">
          <columns>
             <TableColumn fx:id="column1_film" prefWidth="132.0" text="Film" />
             <TableColumn fx:id="column1_autor" prefWidth="119.0" text="Autor" />
             <TableColumn fx:id="column1_durata" prefWidth="67.0" text="Durata" />
          </columns>
       </TableView>
-      <Label layoutX="385.0" layoutY="111.0" text="Date film">
+      <Label layoutX="42.0" layoutY="139.0" text="Date film">
          <font>
             <Font name="Times New Roman Bold" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="txt_numeFilm" layoutX="357.0" layoutY="171.0" promptText="Nume" />
-      <TextField fx:id="txt_autorFilm" layoutX="357.0" layoutY="203.0" promptText="Autor" />
-      <TextField fx:id="txt_durataFilm" layoutX="358.0" layoutY="235.0" promptText="Durata (hh:mm)" />
-      <Button layoutX="357.0" layoutY="323.0" mnemonicParsing="false" onAction="#btn_addFilmClicked" prefHeight="25.0" prefWidth="149.0" text="Adauga film" />
-      <Button layoutX="357.0" layoutY="361.0" mnemonicParsing="false" onAction="#btn_updateFilmClicked" prefHeight="25.0" prefWidth="149.0" text="Actualizeaza film" />
-      <Button layoutX="20.0" layoutY="361.0" mnemonicParsing="false" onAction="#btn_deleteFilmClicked" prefHeight="25.0" prefWidth="319.0" text="Sterge film" />
+      <TextField fx:id="txt_numeFilm" layoutX="14.0" layoutY="202.0" promptText="Nume" />
+      <TextField fx:id="txt_autorFilm" layoutX="14.0" layoutY="234.0" promptText="Autor" />
+      <TextField fx:id="txt_durataFilm" layoutX="15.0" layoutY="266.0" promptText="Durata (hh:mm)" />
+      <Button layoutX="14.0" layoutY="354.0" mnemonicParsing="false" onAction="#btn_addFilmClicked" prefHeight="25.0" prefWidth="149.0" text="Adauga film" />
+      <Button layoutX="14.0" layoutY="392.0" mnemonicParsing="false" onAction="#btn_updateFilmClicked" prefHeight="25.0" prefWidth="149.0" text="Actualizeaza film" />
+      <Button layoutX="14.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_deleteFilmClicked" prefHeight="25.0" prefWidth="479.0" text="Sterge film" />
+      <TableView fx:id="table2" layoutX="516.0" layoutY="114.0" prefHeight="304.0" prefWidth="292.0">
+        <columns>
+          <TableColumn fx:id="column2_film" prefWidth="120.0" text="Film" />
+            <TableColumn fx:id="column2_data" prefWidth="97.0" text="Data" />
+          <TableColumn fx:id="column2_start" prefWidth="74.0" text="Ora start" />
+        </columns>
+      </TableView>
+      <Label layoutX="830.0" layoutY="139.0" text="Programare">
+         <font>
+            <Font name="Times New Roman Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_dataProgram" layoutX="818.0" layoutY="202.0" promptText="Data (dd-mm-yyyy)" />
+      <TextField fx:id="txt_startProgram" layoutX="818.0" layoutY="234.0" promptText="Ora start (hh:mm)" />
+      <Button layoutX="818.0" layoutY="354.0" mnemonicParsing="false" onAction="#btn_addFilmProgramClicked" prefHeight="25.0" prefWidth="149.0" text="Adauga film" />
+      <Button layoutX="818.0" layoutY="392.0" mnemonicParsing="false" onAction="#btn_updateFilmProgramClicked" prefHeight="25.0" prefWidth="149.0" text="Actualizeaza film" />
+      <Button layoutX="516.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_deleteFilmProgramClicked" prefHeight="25.0" prefWidth="452.0" text="Sterge film" />
    </children>
 </AnchorPane>
